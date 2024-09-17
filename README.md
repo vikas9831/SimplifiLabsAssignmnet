@@ -8,6 +8,7 @@ The Image Uploader App is a React application that allows users to upload images
 
 - Upload images with a file size limit of 1MB.
 - Preview images before uploading.
+- Automatic file readability check before upload.
 - View details of the uploaded image including size, dimensions, and format.
 - Copy the image URL to the clipboard.
 - Toggle between light and dark themes.
@@ -35,25 +36,31 @@ npm install
 Replace your_cloud_name and your_upload_preset with your actual Cloudinary Cloud Name and Upload Preset in the ImageUploader.jsx file .
 
 
+
+
 #### To obtain these values:
 
 #### Cloud Name: Log in to your Cloudinary account, and you’ll find it in the top right corner of your dashboard.
 #### Upload Preset: Create one in the Cloudinary dashboard under the Upload Presets section.
 
 ### 4. Run the Development Server
+```bash
 npm run dev
+```
 The application will be available at http://localhost:5173.
 
 ### 5. Build the Project
 To build the project for production, run:
+```bash
 npm run build
+```
 The production build will be created in the dist directory.
 
 ### 6. Preview the Build
 To preview the production build locally, run:
-
+```bash
 npm run preview
-
+```
 
 ## Usage
 
@@ -71,7 +78,18 @@ npm run preview
   
   ### 4.Toggle Theme:
 - Click the sun/moon icon in the navbar to switch between light and dark themes.
- 
+
+
+ ## File Readability Check
+Before allowing the image to be uploaded, the app automatically checks if the selected image is readable. This ensures that the file is in a valid format and can be processed.
+
+### Readability Check Workflow:
+- When an image is selected or dropped into the upload area, the app uses a FileReader to check if the image is readable.
+- If the image passes the check, a success message (✅ File is readable) is shown, and the upload button becomes active.
+- If the image is not readable, an error message (❌ File is not readable) is displayed, preventing the user from proceeding with the upload.
+
+This feature helps in detecting corrupted or unsupported files early, providing a better user experience.
+
 
 
 ## Cloudinary Configuration
@@ -110,7 +128,7 @@ This project uses the following dependencies:
 
 ![Screenshot 2024-09-15 170207](https://github.com/user-attachments/assets/b9ddf003-ab1f-433b-9aae-85b84c5f6d0f)
 
-![Screenshot 2024-09-15 170229](https://github.com/user-attachments/assets/153c66a9-2fee-4b95-843c-b7773b009820)
+
 
 ![Screenshot 2024-09-15 170239](https://github.com/user-attachments/assets/9178cd61-0ed0-44b2-8d87-9a1e87c10ad0)
 
